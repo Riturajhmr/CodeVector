@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "db:init": "node scripts/init-db.js",
+    "seed": "node seed.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
