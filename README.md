@@ -17,10 +17,8 @@ This project demonstrates how to build a high-performance read API over a large 
 | Runtime  | Node.js 18+  |                                    |
 | Framework| Express      |                                    |
 | Database | PostgreSQL   |                                    |
-| Driver   | pg           | Raw SQL — no ORM by design         |
+| Driver   | pg           |        
 | Config   | dotenv       |                                    |
-
-TypeScript and ORMs were intentionally excluded to keep the code readable and the SQL visible.
 
 ---
 
@@ -230,18 +228,3 @@ PostgreSQL seeks directly to the cursor position using the composite index — O
 A query filtering by category needs `category` as the leading index column so Postgres can resolve the equality condition and then walk the sorted remainder without a sort step. A query with no filter benefits from an index that starts directly with `(updated_at, id)`. These two shapes require two separate indexes.
 
 ---
-
-## Future Improvements
-
-- Rate limiting (e.g. `express-rate-limit`)
-- Structured logging with request IDs and durations
-- A versioned SQL migration system
-- Integration tests covering the pagination boundary conditions
-- Full-text search on product name
-- Secondary sort option by price
-
----
-
-## AI Usage Disclosure
-
-This project was developed with assistance from Claude (Anthropic). AI was used for code generation, design validation, and documentation drafting. All implementation decisions were reviewed and directed by the author.
